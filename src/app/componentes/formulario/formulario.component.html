@@ -1,0 +1,98 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <form [formGroup]="formulario" (ngSubmit)="validacion()" novalidate>
+        <ul>
+            <li>
+                <label>Seleccione una región:</label>
+                        <select class="form-control" formControlName="regionNueva" id="regionNueva" >
+                            <option value="1" >Valparaíso</option>
+                            <option value="2">Talca</option>
+                        </select>
+
+                        <div *ngIf="formulario.controls['regionNueva'].invalid && (formulario.controls['regionNueva'].dirty || formulario.controls['regionNueva'].touched)" class="alert alert-danger">
+                            <div *ngIf="formulario.controls['regionNueva'].hasError('required') ">
+                                Campo obligatorio
+                            </div>
+                        </div>
+            </li>
+                <label>Estado del clima:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="soleado">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Soleado
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="lluvioso" >
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Lluvioso
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="nublado" >
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Nublado
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="tormenta" >
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Tormenta
+                    </label>
+                </div>
+            <li>
+                <label>dia:</label>
+                <select class="form-control" formControlName="dia" id="dia">
+                    <option selected>Seleccione un día de la semana</option>
+                    <option value="1" >Lunes</option>
+                    <option value="2">Martes</option>
+                    <option value="3">Miercoles</option>
+                    <option value="4">Jueves</option>
+                    <option value="5">Viernes</option>
+                    <option value="6">Sabado</option>
+                    <option value="7">Domingo</option>
+                </select>
+
+                <div *ngIf="formulario.controls['dia'].invalid && (formulario.controls['dia'].dirty || formulario.controls['dia'].touched)" class="alert alert-danger">
+                    <div *ngIf="formulario.controls['dia'].hasError('required') ">
+                        Campo obligatorio
+                    </div>
+                </div>
+            </li>
+            <li>
+                <label>Temperatura:</label><br>
+                <input class="inputFormulario" type="text" formControlName="temperatura" placeholder="Ingrese la temperatura" >
+                <div *ngIf="formulario.controls['temperatura'].invalid && (formulario.controls['temperatura'].dirty || formulario.controls['temperatura'].touched)" class="alert alert-danger">
+                    <div *ngIf="formulario.controls['temperatura'].hasError('required')">
+                        Campo obligatorio
+                    </div>
+                    <div *ngIf="formulario.controls['temperatura'].hasError('pattern')">
+                        Solo se aceptan dígitos
+                    </div>
+                </div>
+                <br><br>
+            </li>
+            <li>
+                <label>Grados:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="celsius">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Celsius
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="fahrenheit">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Fahrenheit
+                    </label>
+                </div>
+            </li>
+            <li id="boton">
+                <button type="submit" [disabled]="formulario.invalid" >Actualizar</button>
+            </li>
+            <br><br>
+
+        </ul>
+    </form>
+</div>

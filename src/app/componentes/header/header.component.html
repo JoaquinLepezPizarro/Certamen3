@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div id="seccionSuperiorHeader">
+        <img src='../../assets/header.jpg' alt="foto del header">
+        <label id="pais">Chile - </label>
+    </div>
+    <div id="seccionInferiorHeader">
+        <ul ngbNav class="nav-tabs" id="menuRegiones">
+            <li [ngbNavItem]>
+                <a ngbNavLink [routerLink]="['/body']" routerLinkActive="router-link-active">Valparaiso</a>
+            </li>
+            <li [ngbNavItem]>
+                <a ngbNavLink [routerLink]="['/body2']" routerLinkActive="router-link-active" >Talca</a>
+            </li>
+        </ul>
+    </div>
+</div>

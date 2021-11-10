@@ -1,0 +1,52 @@
+<app-header></app-header>
+<label id="regionActual">Talca</label>
+
+<ul ngbNav #nav="ngbNav" [(activeId)]="activeId" class="nav-tabs" id="cajaBotonesTemperatura">
+    <ng-container [ngbNavItem]="1" id="celsius">
+        <a ngbNavLink>Celsius</a>
+        <ng-template ngbNavContent>
+            <ul id="temperaturasPorSemana" class="container-fluid">
+                <li  id="temperaturasPorDia" *ngFor="let clima of mostrarClimaTalca()">
+                    <button id="boton" [routerLink]="['/formulario']" routerLinkActive="">
+                        <div>
+                            {{clima.nombreDia}}
+                        </div>
+                        <div>
+                            <img src='../../assets/{{clima.estadoClima}}.jpg' alt="Imagen de referencia del estado del clima">
+                        </div>
+                        <div>
+                            {{clima.temperaturaC}}°
+                        </div>
+                        <div>
+                            {{clima.estadoClima}}
+                        </div>
+                    </button>
+                </li>
+            </ul>
+        </ng-template>
+    </ng-container>
+    <ng-container [ngbNavItem]="2" id="fahrenheit">
+        <a ngbNavLink>Fahrenheit</a>
+        <ng-template ngbNavContent>
+            <ul id="temperaturasPorSemana" class="container-fluid">
+                <li  id="temperaturasPorDia" *ngFor="let clima of mostrarClimaTalca()">
+                    <button id="boton" [routerLink]="['/formulario']" routerLinkActive="">
+                        <div>
+                            {{clima.nombreDia}}
+                        </div>
+                        <div>
+                            <img src='../../assets/{{clima.estadoClima}}.jpg' alt="Imagen de referencia del estado del clima">
+                        </div>
+                        <div>
+                            {{clima.temperaturaF}}°
+                        </div>
+                        <div>
+                            {{clima.estadoClima}}
+                        </div>
+                    </button>
+                </li>
+            </ul>
+        </ng-template>
+    </ng-container>
+</ul>
+<div [ngbNavOutlet]="nav" class="mt-2"></div>

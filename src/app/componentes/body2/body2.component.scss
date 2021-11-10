@@ -1,0 +1,29 @@
+#temperaturasPorSemana{
+    list-style: none;
+}
+
+#temperaturasPorDia{
+    display: inline;
+    justify-content: center;
+    
+}
+
+#temperaturasPorDia button{
+    background-color: white;
+    border-style: none;
+    width: 14.2%;
+    margin-bottom: 40px;
+}
+
+#regionActual{
+    position: absolute;
+    top: 5%;
+    left: 87%;
+    font-size: 35px;
+}
+
+#boton{
+    vertical-align: middle;
+    display: inline-block;
+    justify-content: center;
+}
